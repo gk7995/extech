@@ -39,6 +39,11 @@
   <link rel="icon" type="image/png" sizes="512x512" href="images/picture1.png">
   <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="images/picture1.png">
   <style>
+    html,
+    .modal {
+      scroll-behavior: smooth;
+    }
+
     @font-face {
       font-family: 'SamsungOne 400';
       src: local('SamsungOne 400'), url('SamsungOne-400.woff') format('woff');
@@ -51,6 +56,20 @@
 
     .oui-button {
       font-family: 'SamsungOne 400';
+    }
+
+    .dropdown-content {
+      border-radius: 15px;
+    }
+
+    #font {
+      font-size: medium;
+    }
+
+    #curr {
+      text-decoration: underline dotted;
+      text-underline-position: under;
+      text-decoration-thickness: 1.5px;
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -65,56 +84,126 @@
         delay: 50
       });
     })
+    $(document).ready(function () {
+      $('.modal').modal();
+      $('#modal').modal();
+    })
     $(document).bind("contextmenu", function (e) {
       return false;
     });
   </script>
 </head>
 
-<body>
+<body onload="location.href='index.html#view'">
   <main>
-    <div class="oui-viewing center-align">
-      <h4 class="black-text">ExTech (Unofficial)</h4>
-      <h6>Multiple Exela links in one website</h6>
-      <h6>IMPORTANT - <span class="red-text">Mandatory to complete the * marked e-Nomination ASAP</h6>
-    </div>
-    <div class="oui-interaction center-align">
-      <!--Interaction area-->
-      <div class="oui-bubble">
-        <h1 class="hide"></h1>
-        <div class="row">
-          <div class="col s6 m6 l3">
-            <i class="fas fa-star-of-life fa-5x" style="rotate: 90deg;"></i><br><br>
-            <p>Google <br> Authenticator</p><br>
-            <div class="oui-button grey lighten-3">
-              <a href="at.html" class="black-text">Tap to open</a></div>
-          </div>
-          <div class="col s6 m6 l3">
-            <i class="fas fa-circle-h fa-5x"></i><br><br>
-            <p>HCM Login <br> Attd., Learning</p><br>
-            <div class="oui-button grey lighten-3">
-              <a href="https://apachcm.exelatech.com" target="_blank" class="black-text">Tap to open</a></div>
-          </div>
-          <div class="col s6 m6 l3">
-            <i class="fas fa-wallet fa-5x"></i><br><br>
-            <p>Payment Slip <br> Portal</p><br>
-            <div class="oui-button grey lighten-3">
-              <a href="https://hcmpay.exela.global/easypay/view/loginmain.aspx" target="_blank" class="black-text">Tap
-                to open</a></div>
-          </div>
-          <div class="col s6 m6 l3">
+    <div id="main">
+      <div class="oui-viewing center-align">
+        <h4 class="black-text">ExTech (Unofficial)</h4>
+        <h6>Multiple Exela links in one website, <br> Tap on Icons/ Buttons to open links below</h6>
+        <!-- <h6>IMPORTANT - <span class="red-text">Mandatory to complete the * marked e-Nomination ASAP</h6> -->
+      </div>
+      <div id="view"></div><br>
+      <div class="row">
+        <div style="font-size: large;">
+          <a href="#!" class="dropdown-button col s4 m3 l2 black-text" data-belowOrigin="true" data-gutter="10"
+            data-constrainWidth="true" data-activates="dd1">&#9776;</a>
+          <ul id="dd1" class="dropdown-content">
+            <li><a href="#!" class="blue-text text-accent-2"><i class="fa-solid fa-home"></i>
+                <span id="curr">Home</span></a></li>
+            <li class="divider"></li>
+            <li><a href="#about" class="black-text modal-trigger"><i class="fa-solid fa-circle-info"></i>
+                About (v2023.1.1)</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="oui-interaction center-align">
+        <!--Interaction area-->
+        <div class="oui-bubble">
+          <h1 class="hide"></h1>
+          <div class="row">
+            <div class="col s12 m6 l6"><br>
+              <a href="at.html" class="black-text">
+                <i class="fas fa-star-of-life fa-5x" style="rotate: 90deg;"></i></a><br><br>
+              <p>Google Authenticator</p>
+              <p>https://tinyurl.com/sddk2pnn</p><br>
+              <div class="oui-button grey lighten-3">
+                <a href="at.html" class="black-text">Tap to open</a></div>
+            </div>
+            <div class="col s12 m6 l6"><br>
+              <a href="https://apachcm.exelatech.com" target="_blank" class="black-text">
+                <i class="fas fa-circle-h fa-5x"></i></a><br><br>
+              <p>HCM Login Attd., Learning</p>
+              <p>https://apachcm.exelatech.com</p><br>
+              <div class="oui-button grey lighten-3">
+                <a href="https://apachcm.exelatech.com" target="_blank" class="black-text">Tap to open</a></div>
+            </div>
+            <div class="col s12 m6 l6"><br>
+              <a href="https://hcmpay.exela.global/easypay/view/loginmain.aspx" target="_blank" class="black-text">
+                <i class="fas fa-wallet fa-5x"></i></a><br><br>
+              <p>Payment Slip Portal</p>
+              <p>https://hcmpay.exela.global/easypay/view/loginmain.aspx</p><br>
+              <div class="oui-button grey lighten-3">
+                <a href="https://hcmpay.exela.global/easypay/view/loginmain.aspx" target="_blank" class="black-text">Tap
+                  to open</a></div>
+            </div>
+            <!-- <div class="col s12 m6 l6">
             <i class="fas fa-triangle-exclamation fa-5x red-text"></i><br><br>
-            <p class="red-text">EPFO* - file the e- <br> Nomination ASAP</p><br>
+            <p class="red-text">EPFO* - file the e- Nomination ASAP</p>
+            <p>https://unifiedportal-mem.epfindia.gov.in/memberinterface/</p><br>
             <div class="oui-button red lighten-3">
               <a href="https://unifiedportal-mem.epfindia.gov.in/memberinterface/" target="_blank"
                 class="black-text">Tap to open</a></div>
+          </div> -->
           </div>
         </div>
       </div>
-    </div>
-    <br>
-    <div class="center-align">
-      <h6>&copy; 2023, All Rights reserved.</h6>
+      <br>
+      <div class="modal black-text center-align" id="about">
+        <div class="modal-content">
+          <img src="images/GK Logo New 2020 whitebg.png" class="responsive-img" alt="GK" width="20%" height="20%"
+            id="image">
+          <h5>Website Developed by <br>Gaurav Khatri</h5>
+          <h4><b>What's New</b></h4>
+          <hr style="border: dashed 0.5px black;">
+          <table class="bordered">
+            <thead>
+              <tr id="new">
+                <th><b>Version</b></th>
+                <th><b>Release Notes</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023.1.1</td>
+                <td>Few UI changes, showing links, Ham Menu with About added</td>
+              </tr>
+              <tr>
+                <td>2023.1</td>
+                <td>Initial Release.</td>
+              </tr>
+            </tbody>
+          </table><br>
+        </div>
+        <p class="grey-text text-darken-1">&copy; 2023, All Rights reserved.</p>
+        <script>
+          const scriptURL =
+            'https://script.google.com/macros/s/AKfycbyNWNXyIv0Cx8sMALZMW3RRSjY1Wis-NWevN0gzqnNJL2Bs07CFQqYPaJc_MFEtuulx/exec'
+          const form = document.forms['google-sheet']
+
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+              })
+              .then(response => alert(
+                "Thanks for your valuable Feedback..! Stay tuned for further updates"
+              ))
+              .catch(error => console.error('Error!', error.message))
+          })
+        </script>
+      </div>
     </div>
   </main>
   <script>
